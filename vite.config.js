@@ -10,18 +10,16 @@
 // on production everything will work just fine
 
 //import vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vite'
-import liveReload from 'vite-plugin-live-reload'
-const { resolve, basename } = require('path')
-const fs = require('fs')
-
+import { defineConfig } from 'vite';
+import liveReload from 'vite-plugin-live-reload';
+const { resolve, basename } = require('path');
+const fs = require('fs');
 
 // https://vitejs.dev/config
 export default defineConfig({
-
   plugins: [
     //vue(),
-    liveReload(__dirname+'/**/*.php')
+    liveReload(__dirname + '/**/*.php'),
   ],
 
   // config
@@ -45,9 +43,9 @@ export default defineConfig({
     // our entry
     rollupOptions: {
       input: {
-        main: resolve( __dirname + '/main.js')
+        main: resolve(__dirname + '/main.js'),
       },
-      
+
       /*
       output: {
           entryFileNames: `[name].js`,
@@ -58,11 +56,10 @@ export default defineConfig({
 
     // minifying switch
     minify: true,
-    write: true
+    write: true,
   },
 
   server: {
-
     // required to load scripts from custom host
     cors: true,
 
@@ -91,7 +88,6 @@ export default defineConfig({
       host: 'localhost',
       //port: 443
     },
-    
   },
 
   // required for in-browser template compilation
@@ -99,7 +95,7 @@ export default defineConfig({
   resolve: {
     alias: {
       //vue: 'vue/dist/vue.esm-bundler.js'
-    }
-  }
-})
-
+      assets: '/assets',
+    },
+  },
+});
